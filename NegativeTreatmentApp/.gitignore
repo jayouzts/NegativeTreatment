@@ -1,0 +1,19 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Python
+__pycache__/
+*.py[cod]
+*.env
+.env
+.cache/
+
+# Misc
+*.log
+*.tmp
+.cache/
+.DS_Store
+
+ThompsonReutersNegativeTreatment/.git

@@ -1,0 +1,54 @@
+Analyze the following opinion text and identify any instances where the court
+overrules, overturns, supersedes, reverses, limits, criticizes, questions, distinguishes,
+disagrees with, or otherwise negatively treats another case. 
+Return your answer in JSON format, with each treatment including:
+- the name of the treated case along with a citation
+- type of treatment (e.g., overruled, limited)
+- explanation of why it was considered negative
+- quote or passage supporting your conclusion
+
+Include both explicit and implicit negative treatments. 
+For example, if the court overturns a doctrine or legal principle that was based on earlier cases, 
+consider those earlier cases negatively treated even if not directly overruled. 
+
+Do not consider a case to be negatively treated if it is:
+
+- Merely cited in support of another case being overruled, questioned, or limited,
+  unless the opinion itself directly criticizes or distances itself from that supporting case.
+- Mentioned favorably or used as precedent to justify the court's reasoning.
+- Merely comparing the current case to another case is not in and of itself negative treatment.  The
+  analyzed case must take a contrary stance on an issue.
+
+Return the JSON in this format
+{
+  "analyzed_case": "<Name and citation of the case being analyzed>",
+  "negative_treatments": [
+    {
+	  "treated_case": "<Name and citation of the negatively treated case>",
+      "evidence": [
+        {
+          "type": "<type of treatment (e.g., overruled, limited, criticized)>",
+          "explanation": "<why this is considered negative treatment>",
+          "quote": "<passage from the opinion that supports this conclusion>"
+        }
+      ]
+    }
+  ]
+}
+
+Every item in the "negative_treatments" must include the "treated_case" field explicitly. 
+Do not leave this field out or assume it can be inferred from context.
+
+If you find no such treatments, return { "analyzed_case": "<case name>", "negative_treatments": [] }
+
+
+Only consider cases explicitly mentioned in the text.
+
+If you find negative treatment within a concurring or dissenting opinion, include it BUT make sure you
+clearly specify such in your explanation.
+
+Do not reference any cases that are not present in the input.
+Do not invent any cases.
+
+Opinion Text:
+"""$opinion_text"""
