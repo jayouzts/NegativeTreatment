@@ -23,7 +23,7 @@ The final prompt is stored in `src/prompts/negative_treatment.txt`._
 This project uses a `.env` file for API keys and configuration. You must create one before running the app:
 
 ```bash
-cp .env.example .env
+cp env.example .env
 ```
 
 Then update the following variables:
@@ -32,7 +32,7 @@ Then update the following variables:
 OPENAI_API_KEY=your_key_here
 OPENAI_MODEL=gpt-4-turbo
 SCHOLAR_BASE_URL=https://scholar.google.com/scholar_case
-MOCK_TEST=false
+MOCK_TEST=true
 ```
 
 ---
@@ -85,7 +85,7 @@ python run_tests.py
 
 ### Full Integration Tests
 
-Set MOCK_TEST environment variable to false to disable mocking.  Then execute run_tests.py._
+Set MOCK_TEST environment variable to false to disable mocking.  Then execute run_tests.py.
 
 ---
 
@@ -111,4 +111,4 @@ The application includes a caching mechanism to reduce the number of requests.
 Friendly error messages are returned when scraping fails.
 
 As a fallback, users can manually download and save HTML case files into
-the src/cache/ directory using the appropriate case ID as the filename.
+the src/cache/ directory using the appropriate case ID as the filename.  The five cases provided in the assignment are already cached.
